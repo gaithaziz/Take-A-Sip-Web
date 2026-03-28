@@ -22,38 +22,94 @@ export default async function Home({
     <div dir={isAr ? "rtl" : "ltr"} className={isAr ? "font-arabic" : "font-sans"}>
       <div className="min-h-screen bg-[var(--background)] text-stone-900">
         <header className="sticky top-0 z-30 border-b border-[var(--brand-soft)] bg-white/90 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <Link href={isAr ? "/?lang=ar" : "/"} className="flex items-center gap-3 text-lg font-semibold tracking-tight text-stone-950">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-[var(--brand)] bg-white shadow-[0_10px_24px_rgba(28,25,23,0.12)]">
-                <Image src="/logo.png" alt="Take a Sip logo" fill className="object-cover" sizes="48px" />
-              </div>
-              <div className="hidden sm:block">
-                <span className="block">{content.legal.brandName}</span>
-                <span className="block text-xs font-medium tracking-[0.18em] text-[var(--brand)]">
-                  {content.brandTagline}
+          <div className="mx-auto max-w-7xl px-6 py-4 lg:px-10">
+            <div className="grid grid-cols-[auto_1fr_auto] items-center lg:hidden">
+              <details className="relative">
+                <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[var(--brand-soft)] bg-white text-stone-900 shadow-[0_10px_24px_rgba(28,25,23,0.08)] [&::-webkit-details-marker]:hidden">
+                  <span className="text-lg leading-none">≡</span>
+                </summary>
+                <div className={`absolute top-14 ${isAr ? "right-0" : "left-0"} w-72 rounded-[28px] border border-[var(--brand-soft)] bg-white p-5 shadow-[0_24px_60px_rgba(28,25,23,0.12)]`}>
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-[var(--brand)] bg-white">
+                      <Image src="/logo.png" alt="Take a Sip logo" fill className="object-cover" sizes="48px" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-stone-900">{content.legal.brandName}</p>
+                      <p className="text-xs tracking-[0.16em] text-[var(--brand)]">{content.brandTagline}</p>
+                    </div>
+                  </div>
+                  <nav className="flex flex-col gap-2 text-sm font-medium text-stone-700">
+                    <a href="#features" className="rounded-2xl px-4 py-3 transition hover:bg-[#fff7eb]">
+                      {content.nav.features}
+                    </a>
+                    <a href="#how" className="rounded-2xl px-4 py-3 transition hover:bg-[#fff7eb]">
+                      {content.nav.howItWorks}
+                    </a>
+                    <a href="#rewards" className="rounded-2xl px-4 py-3 transition hover:bg-[#fff7eb]">
+                      {content.nav.rewards}
+                    </a>
+                    <a href="#download" className="rounded-2xl px-4 py-3 transition hover:bg-[#fff7eb]">
+                      {isAr ? "التحميل" : "Download"}
+                    </a>
+                    <Link href={`/privacy${legalSuffix}`} className="rounded-2xl px-4 py-3 transition hover:bg-[#fff7eb]">
+                      {content.nav.privacy}
+                    </Link>
+                    <Link href={`/terms${legalSuffix}`} className="rounded-2xl px-4 py-3 transition hover:bg-[#fff7eb]">
+                      {content.nav.terms}
+                    </Link>
+                  </nav>
+                  <div className="mt-5 border-t border-[var(--brand-soft)] pt-5">
+                    <LanguageToggle lang={lang} path="/" />
+                  </div>
+                </div>
+              </details>
+
+              <Link href={isAr ? "/?lang=ar" : "/"} className="justify-self-center text-center">
+                <span className="block text-base font-semibold tracking-tight text-stone-950">
+                  {content.legal.brandName}
                 </span>
+              </Link>
+
+              <div className="justify-self-end">
+                <div className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-[var(--brand)] bg-white shadow-[0_10px_24px_rgba(28,25,23,0.12)]">
+                  <Image src="/logo.png" alt="Take a Sip logo" fill className="object-cover" sizes="44px" />
+                </div>
               </div>
-            </Link>
+            </div>
 
-            <nav className="hidden items-center gap-8 text-sm font-medium text-stone-600 lg:flex">
-              <a href="#features" className="transition hover:text-stone-950">
-                {content.nav.features}
-              </a>
-              <a href="#how" className="transition hover:text-stone-950">
-                {content.nav.howItWorks}
-              </a>
-              <a href="#rewards" className="transition hover:text-stone-950">
-                {content.nav.rewards}
-              </a>
-              <Link href={`/privacy${legalSuffix}`} className="transition hover:text-stone-950">
-                {content.nav.privacy}
+            <div className="hidden items-center justify-between lg:flex">
+              <Link href={isAr ? "/?lang=ar" : "/"} className="flex items-center gap-3 text-lg font-semibold tracking-tight text-stone-950">
+                <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-[var(--brand)] bg-white shadow-[0_10px_24px_rgba(28,25,23,0.12)]">
+                  <Image src="/logo.png" alt="Take a Sip logo" fill className="object-cover" sizes="48px" />
+                </div>
+                <div>
+                  <span className="block">{content.legal.brandName}</span>
+                  <span className="block text-xs font-medium tracking-[0.18em] text-[var(--brand)]">
+                    {content.brandTagline}
+                  </span>
+                </div>
               </Link>
-              <Link href={`/terms${legalSuffix}`} className="transition hover:text-stone-950">
-                {content.nav.terms}
-              </Link>
-            </nav>
 
-            <LanguageToggle lang={lang} path="/" />
+              <nav className="hidden items-center gap-8 text-sm font-medium text-stone-600 lg:flex">
+                <a href="#features" className="transition hover:text-stone-950">
+                  {content.nav.features}
+                </a>
+                <a href="#how" className="transition hover:text-stone-950">
+                  {content.nav.howItWorks}
+                </a>
+                <a href="#rewards" className="transition hover:text-stone-950">
+                  {content.nav.rewards}
+                </a>
+                <Link href={`/privacy${legalSuffix}`} className="transition hover:text-stone-950">
+                  {content.nav.privacy}
+                </Link>
+                <Link href={`/terms${legalSuffix}`} className="transition hover:text-stone-950">
+                  {content.nav.terms}
+                </Link>
+              </nav>
+
+              <LanguageToggle lang={lang} path="/" />
+            </div>
           </div>
         </header>
 
