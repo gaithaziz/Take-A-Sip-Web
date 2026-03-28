@@ -281,7 +281,7 @@ export const privacyPolicy = {
     {
       title: "Contact Information",
       paragraphs: [
-        "For privacy-related questions, requests, or complaints, please contact us at support@yourapp.com.",
+        "For privacy-related questions, requests, or complaints, please contact us at takeasipdev@gmail.com.",
       ],
     },
     {
@@ -350,7 +350,7 @@ export const privacyPolicy = {
     {
       title: "معلومات التواصل",
       paragraphs: [
-        "للاستفسارات أو الطلبات أو الشكاوى المتعلقة بالخصوصية، يمكن التواصل معنا عبر البريد الإلكتروني: support@yourapp.com.",
+        "للاستفسارات أو الطلبات أو الشكاوى المتعلقة بالخصوصية، يمكن التواصل معنا عبر البريد الإلكتروني: takeasipdev@gmail.com.",
       ],
     },
     {
